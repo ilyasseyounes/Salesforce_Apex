@@ -200,7 +200,7 @@ Custom services, HTTP callouts, authentication patterns
 Large dataset processing, job management, parallel processing
 </td>
 <td align="center" width="33%">
-<img src="https://img.icons8.com/color/64/000000/radio-waves.png"/><br/>
+<img src="https://img.icons8.com/color/64/000000/radio.png"/><br/>
 <strong>📡 Streaming API</strong><br/>
 Real-time events, PushTopics, CometD integration
 </td>
