@@ -429,6 +429,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 # Salesforce Apex Showcase - Full Project Structure
 
+</div>
 ```
 salesforce-apex-showcase/
 │
@@ -821,5 +822,3 @@ salesforce-apex-showcase/
 │   │
 │   ├──
 ```
-
-</div>
