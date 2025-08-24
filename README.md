@@ -818,6 +818,5 @@ salesforce-apex-showcase/
 │   │   ├── 📄 APIResponseParser.cls      # Response parsing utilities
 │   │   ├── 📄 WebhookProcessor.cls       # Webhook handling framework
 │   │   └── 📄 QueueManager.cls           # Async processing queue
-│   │
 ```
 </div>
