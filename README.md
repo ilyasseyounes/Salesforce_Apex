@@ -819,4 +819,5 @@ salesforce-apex-showcase/
 │   │   ├── 📄 WebhookProcessor.cls       # Webhook handling framework
 │   │   └── 📄 QueueManager.cls           # Async processing queue
 │   │
+```
 </div>
