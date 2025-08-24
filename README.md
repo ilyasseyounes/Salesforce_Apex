@@ -429,7 +429,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 </div>
 
-# Salesforce Apex Showcase - Professional Portfolio
+# Salesforce Apex Showcase - Full Project Structure 
 
 ```
 salesforce-apex-showcase/
