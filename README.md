@@ -427,7 +427,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 *Created by **Ilyasse Younes** for the Salesforce developer community*
 
-# Salesforce Apex Showcase - Full Project Structure
+</div>
+
+# Salesforce Apex Showcase - Professional Portfolio
 
 ```
 salesforce-apex-showcase/
@@ -818,5 +820,5 @@ salesforce-apex-showcase/
 │   │   ├── 📄 APIResponseParser.cls      # Response parsing utilities
 │   │   ├── 📄 WebhookProcessor.cls       # Webhook handling framework
 │   │   └── 📄 QueueManager.cls           # Async processing queue
-```
-</div>
+│   │
+│   ├──
