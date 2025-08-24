@@ -454,27 +454,6 @@ salesforce-apex-showcase/
 │       ├── 📄 streaming-api.md           # Platform Events & Change Events
 │       └── 📄 custom-metadata.md         # Custom Metadata API usage
 │
-├── 🏗️ apex-development/              # Core Salesforce development
-│   ├── fundamentals/                 # Apex basics & data manipulation
-│   ├── triggers/                     # Trigger patterns & best practices
-│   ├── async-processing/             # Future, Queueable, Batch, Schedulable
-│   ├── data-operations/              # SOQL, SOSL, DML operations
-│   └── security-patterns/            # Sharing rules, field-level security
-│
-├── 🔗 api-integrations/              # Comprehensive API examples
-│   ├── rest-services/                # Custom REST endpoints & callouts
-│   ├── bulk-api/                     # Bulk API 2.0 implementations
-│   ├── streaming-api/                # Real-time event processing
-│   ├── composite-api/                # Bundled request patterns
-│   ├── graphql-queries/              # GraphQL API implementations
-│   └── metadata-api/                 # Programmatic customization
-│
-├── ⚡ lightning-development/          # Modern UI development
-│   ├── lwc-components/               # Lightning Web Components
-│   ├── aura-components/              # Classic Lightning components
-│   ├── visualforce-pages/            # Legacy UI development
-│   └── ui-patterns/                  # Reusable UI patterns
-|
 ├── 📁 projects/                          # Enterprise project portfolio
 │   ├── 📁 financial-services-platform/  # Banking & finance solution
 │   │   ├── 📄 README.md                  # Project overview & architecture
@@ -840,7 +819,7 @@ salesforce-apex-showcase/
 │   │   ├── 📄 WebhookProcessor.cls       # Webhook handling framework
 │   │   └── 📄 QueueManager.cls           # Async processing queue
 │   │
-│   ├─...
+│   ├──
 ```
 
 </div>
