@@ -190,34 +190,34 @@ Advanced analytics and business intelligence
 <table>
 <tr>
 <td align="center" width="33%">
-<img src="https://img.icons8.com/color/64/000000/rest-api.png"/><br/>
+<img src="https://img.icons8.com/color/64/000000/api.png"/><br/>
 <strong>🌐 REST APIs</strong><br/>
 Custom services, HTTP callouts, authentication patterns
 </td>
 <td align="center" width="33%">
-<img src="https://img.icons8.com/color/64/000000/data-backup.png"/><br/>
+<img src="https://img.icons8.com/color/64/000000/database.png"/><br/>
 <strong>📦 Bulk API 2.0</strong><br/>
 Large dataset processing, job management, parallel processing
 </td>
 <td align="center" width="33%">
-<img src="https://img.icons8.com/color/64/000000/stream.png"/><br/>
+<img src="https://img.icons8.com/color/64/000000/radio-waves.png"/><br/>
 <strong>📡 Streaming API</strong><br/>
 Real-time events, PushTopics, CometD integration
 </td>
 </tr>
 <tr>
 <td align="center" width="33%">
-<img src="https://img.icons8.com/color/64/000000/graphql.png"/><br/>
+<img src="https://img.icons8.com/color/64/000000/search.png"/><br/>
 <strong>🎯 GraphQL</strong><br/>
 Precise data queries, schema introspection, efficient fetching
 </td>
 <td align="center" width="33%">
-<img src="https://img.icons8.com/color/64/000000/combo-chart.png"/><br/>
+<img src="https://img.icons8.com/color/64/000000/stack.png"/><br/>
 <strong>🔄 Composite API</strong><br/>
 Bundled requests, transaction control, performance optimization
 </td>
 <td align="center" width="33%">
-<img src="https://img.icons8.com/color/64/000000/settings.png"/><br/>
+<img src="https://img.icons8.com/color/64/000000/gear.png"/><br/>
 <strong>⚙️ Metadata API</strong><br/>
 Programmatic customization, deployment automation
 </td>
