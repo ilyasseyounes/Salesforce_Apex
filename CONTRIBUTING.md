@@ -1,4 +1,406 @@
-# 🚀 Salesforce Apex Showcase - Extended Enterprise Repository Structure
+│   │   ├── 📄 .jenkins/
+│   │   │   ├── 📄 Jenkinsfile                       # Jenkins pipeline configuration
+│   │   │   ├── 📄 build.groovy                      # Build automation scripts
+│   │   │   ├── 📄 test.groovy                       # Test automation scripts
+│   │   │   └── 📄 deploy.groovy                     # Deployment automation scripts
+│   │   ├── 📄 .azure-pipelines/
+│   │   │   ├── 📄 azure-pipelines.yml               # Azure DevOps pipeline
+│   │   │   ├── 📄 build-pipeline.yml                # Build pipeline configuration
+│   │   │   ├── 📄 test-pipeline.yml                 # Test pipeline configuration
+│   │   │   └── 📄 release-pipeline.yml              # Release pipeline configuration
+│   │   ├── 📄 docker/
+│   │   │   ├── 📄 Dockerfile                        # Docker container configuration
+│   │   │   ├── 📄 docker-compose.yml                # Multi-container configuration
+│   │   │   └── 📄 scripts/
+│   │   │       ├── 📄 build.sh                      # Container build script
+│   │   │       ├── 📄 test.sh                       # Container test script
+│   │   │       └── 📄 deploy.sh                     # Container deployment script
+│   │   └── 📄 terraform/
+│   │       ├── 📄 main.tf                           # Terraform main configuration
+│   │       ├── 📄 variables.tf                      # Terraform variables
+│   │       ├── 📄 outputs.tf                        # Terraform outputs
+│   │       └── 📄 modules/
+│   │           ├── 📄 salesforce/
+│   │           ├── 📄 monitoring/
+│   │           └── 📄 security/
+│   │
+│   ├── 📁 deployment-automation/                    # Deployment automation tools
+│   │   ├── 📄 README.md                             # Deployment automation guide
+│   │   ├── 📄 DeploymentManager.cls                 # Deployment management framework
+│   │   ├── 📄 EnvironmentProvisioner.cls            # Environment provisioning
+│   │   ├── 📄 ConfigurationManager.cls              # Configuration management
+│   │   ├── 📄 ReleaseManager.cls                    # Release management
+│   │   ├── 📄 RollbackManager.cls                   # Rollback management
+│   │   ├── 📄 HealthCheckManager.cls                # Health check automation
+│   │   ├── 📄 scripts/
+│   │   │   ├── 📄 deploy-to-sandbox.sh              # Sandbox deployment
+│   │   │   ├── 📄 deploy-to-production.sh           # Production deployment
+│   │   │   ├── 📄 run-smoke-tests.sh                # Smoke test automation
+│   │   │   ├── 📄 validate-deployment.sh            # Deployment validation
+│   │   │   └── 📄 rollback-deployment.sh            # Rollback automation
+│   │   ├── 📄 ansible/
+│   │   │   ├── 📄 playbook.yml                      # Ansible playbook
+│   │   │   ├── 📄 inventory.yml                     # Ansible inventory
+│   │   │   └── 📄 roles/
+│   │   │       ├── 📄 salesforce-deploy/
+│   │   │       ├── 📄 database-migration/
+│   │   │       └── 📄 monitoring-setup/
+│   │   └── 📄 helm/
+│   │       ├── 📄 Chart.yaml                        # Helm chart configuration
+│   │       ├── 📄 values.yaml                       # Helm values
+│   │       └── 📄 templates/
+│   │           ├── 📄 deployment.yaml
+│   │           ├── 📄 service.yaml
+│   │           └── 📄 configmap.yaml
+│   │
+│   ├── 📁 monitoring-observability/                 # Monitoring and observability
+│   │   ├── 📄 README.md                             # Monitoring setup guide
+│   │   ├── 📄 MonitoringFramework.cls               # Monitoring framework
+│   │   ├── 📄 MetricsCollector.cls                  # Metrics collection
+│   │   ├── 📄 AlertingSystem.cls                    # Alerting system
+│   │   ├── 📄 LogAggregator.cls                     # Log aggregation
+│   │   ├── 📄 TraceCollector.cls                    # Distributed tracing
+│   │   ├── 📄 DashboardManager.cls                  # Dashboard management
+│   │   ├── 📄 prometheus/
+│   │   │   ├── 📄 prometheus.yml                    # Prometheus configuration
+│   │   │   ├── 📄 alert-rules.yml                   # Alert rules configuration
+│   │   │   └── 📄 exporters/
+│   │   │       ├── 📄 salesforce-exporter.py        # Custom Salesforce exporter
+│   │   │       └── 📄 api-exporter.py               # API metrics exporter
+│   │   ├── 📄 grafana/
+│   │   │   ├── 📄 datasources.yml                   # Grafana data sources
+│   │   │   ├── 📄 dashboards/
+│   │   │   │   ├── 📄 system-overview.json          # System overview dashboard
+│   │   │   │   ├── 📄 api-performance.json          # API performance dashboard
+│   │   │   │   ├── 📄 user-activity.json            # User activity dashboard
+│   │   │   │   └── 📄 security-monitoring.json      # Security monitoring dashboard
+│   │   │   └── 📄 alerts/
+│   │   │       ├── 📄 system-alerts.json            # System alert configuration
+│   │   │       └── 📄 business-alerts.json          # Business alert configuration
+│   │   └── 📄 elk-stack/
+│   │       ├── 📄 elasticsearch.yml                 # Elasticsearch configuration
+│   │       ├── 📄 logstash.conf                     # Logstash configuration
+│   │       ├── 📄 kibana.yml                        # Kibana configuration
+│   │       └── 📄 filebeat.yml                      # Filebeat configuration
+│   │
+│   ├── 📁 security-automation/                      # Security automation tools
+│   │   ├── 📄 README.md                             # Security automation guide
+│   │   ├── 📄 SecurityScanner.cls                   # Automated security scanning
+│   │   ├── 📄 VulnerabilityAssessment.cls           # Vulnerability assessment
+│   │   ├── 📄 ComplianceChecker.cls                 # Compliance automation
+│   │   ├── 📄 ThreatDetection.cls                   # Threat detection automation
+│   │   ├── 📄 IncidentResponse.cls                  # Incident response automation
+│   │   ├── 📄 SecurityReporting.cls                 # Security reporting automation
+│   │   ├── 📄 sonarqube/
+│   │   │   ├── 📄 sonar-project.properties          # SonarQube configuration
+│   │   │   ├── 📄 quality-gates.json                # Quality gates configuration
+│   │   │   └── 📄 custom-rules.xml                  # Custom security rules
+│   │   ├── 📄 owasp-zap/
+│   │   │   ├── 📄 zap-baseline.conf                 # ZAP baseline scan configuration
+│   │   │   ├── 📄 zap-full-scan.conf                # ZAP full scan configuration
+│   │   │   └── 📄 automation-framework.yaml         # ZAP automation framework
+│   │   └── 📄 scripts/
+│   │       ├── 📄 security-scan.sh                  # Security scanning script
+│   │       ├── 📄 vulnerability-check.sh            # Vulnerability checking
+│   │       ├── 📄 compliance-audit.sh               # Compliance audit script
+│   │       └── 📄 threat-assessment.sh              # Threat assessment script
+│   │
+│   ├── 📁 infrastructure-as-code/                   # Infrastructure as Code
+│   │   ├── 📄 README.md                             # IaC implementation guide
+│   │   ├── 📄 terraform/
+│   │   │   ├── 📄 environments/
+│   │   │   │   ├── 📄 development/
+│   │   │   │   │   ├── 📄 main.tf
+│   │   │   │   │   ├── 📄 variables.tf
+│   │   │   │   │   └── 📄 outputs.tf
+│   │   │   │   ├── 📄 staging/
+│   │   │   │   │   ├── 📄 main.tf
+│   │   │   │   │   ├── 📄 variables.tf
+│   │   │   │   │   └── 📄 outputs.tf
+│   │   │   │   └── 📄 production/
+│   │   │   │       ├── 📄 main.tf
+│   │   │   │       ├── 📄 variables.tf
+│   │   │   │       └── 📄 outputs.tf
+│   │   │   └── 📄 modules/
+│   │   │       ├── 📄 salesforce-org/
+│   │   │       ├── 📄 heroku-app/
+│   │   │       ├── 📄 aws-resources/
+│   │   │       └── 📄 azure-resources/
+│   │   ├── 📄 cloudformation/
+│   │   │   ├── 📄 templates/
+│   │   │   │   ├── 📄 infrastructure.yaml
+│   │   │   │   ├── 📄 security.yaml
+│   │   │   │   └── 📄 monitoring.yaml
+│   │   │   └── 📄 parameters/
+│   │   │       ├── 📄 development.json
+│   │   │       ├── 📄 staging.json
+│   │   │       └── 📄 production.json
+│   │   ├── 📄 arm-templates/
+│   │   │   ├── 📄 mainTemplate.json
+│   │   │   ├── 📄 parameters.json
+│   │   │   └── 📄 nestedTemplates/
+│   │   └── 📄 kubernetes/
+│   │       ├── 📄 namespaces/
+│   │       ├── 📄 deployments/
+│   │       ├── 📄 services/
+│   │       ├── 📄 configmaps/
+│   │       └── 📄 secrets/
+│   │
+│   └── 📁 environment-management/                   # Environment management
+│       ├── 📄 README.md                             # Environment management guide
+│       ├── 📄 EnvironmentManager.cls                # Environment management framework
+│       ├── 📄 ScratchOrgProvisioner.cls             # Scratch org provisioning
+│       ├── 📄 SandboxManager.cls                    # Sandbox management
+│       ├── 📄 DataSeeder.cls                        # Environment data seeding
+│       ├── 📄 ConfigurationSync.cls                 # Configuration synchronization
+│       ├── 📄 FeatureToggleManager.cls              # Feature toggle management
+│       ├── 📄 scripts/
+│       │   ├── 📄 create-scratch-org.sh             # Scratch org creation
+│       │   ├── 📄 setup-dev-environment.sh          # Development environment setup
+│       │   ├── 📄 sync-environments.sh              # Environment synchronization
+│       │   ├── 📄 cleanup-environments.sh           # Environment cleanup
+│       │   └── 📄 backup-environment.sh             # Environment backup
+│       ├── 📄 configurations/
+│       │   ├── 📄 development-config.json           # Development configuration
+│       │   ├── 📄 testing-config.json               # Testing configuration
+│       │   ├── 📄 staging-config.json               # Staging configuration
+│       │   └── 📄 production-config.json            # Production configuration
+│       └── 📄 templates/
+│           ├── 📄 scratch-org-def.json              # Scratch org definition template
+│           ├── 📄 permission-set-template.xml       # Permission set template
+│           └── 📄 custom-settings-template.xml      # Custom settings template
+```
+
+## 📊 Analytics and Reporting Framework
+
+```
+├── 📁 analytics-reporting/                          # Analytics and reporting infrastructure
+│   ├── 📁 business-intelligence/                    # Business intelligence framework
+│   │   ├── 📄 README.md                             # BI framework overview
+│   │   ├── 📄 DataWarehouseManager.cls              # Data warehouse management
+│   │   ├── 📄 ETLPipeline.cls                       # ETL pipeline framework
+│   │   ├── 📄 DataMart.cls                          # Data mart implementation
+│   │   ├── 📄 OLAPProcessor.cls                     # OLAP processing engine
+│   │   ├── 📄 DimensionManager.cls                  # Dimension management
+│   │   ├── 📄 MetricsCalculator.cls                 # Business metrics calculation
+│   │   ├── 📄 KPIDashboard.cls                      # KPI dashboard framework
+│   │   └── 📁 models/
+│   │       ├── 📄 SalesAnalyticsModel.cls           # Sales analytics model
+│   │       ├── 📄 CustomerAnalyticsModel.cls        # Customer analytics model
+│   │       ├── 📄 FinancialAnalyticsModel.cls       # Financial analytics model
+│   │       └── 📄 OperationalAnalyticsModel.cls     # Operational analytics model
+│   │
+│   ├── 📁 predictive-analytics/                     # Predictive analytics framework
+│   │   ├── 📄 README.md                             # Predictive analytics guide
+│   │   ├── 📄 PredictiveModelFramework.cls          # Predictive modeling framework
+│   │   ├── 📄 ForecastingEngine.cls                 # Forecasting engine
+│   │   ├── 📄 ChurnPrediction.cls                   # Customer churn prediction
+│   │   ├── 📄 DemandForecasting.cls                 # Demand forecasting
+│   │   ├── 📄 RiskAssessment.cls                    # Risk assessment models
+│   │   ├── 📄 RecommendationEngine.cls              # Recommendation system
+│   │   ├── 📄 AnomalyDetection.cls                  # Anomaly detection
+│   │   └── 📁 algorithms/
+│   │       ├── 📄 LinearRegression.cls              # Linear regression implementation
+│   │       ├── 📄 DecisionTree.cls                  # Decision tree algorithm
+│   │       ├── 📄 ClusteringAlgorithm.cls           # Clustering algorithms
+│   │       └── 📄 TimeSeriesAnalysis.cls            # Time series analysis
+│   │
+│   ├── 📁 real-time-analytics/                      # Real-time analytics framework
+│   │   ├── 📄 README.md                             # Real-time analytics guide
+│   │   ├── 📄 StreamProcessor.cls                   # Stream processing engine
+│   │   ├── 📄 EventAnalyzer.cls                     # Real-time event analysis
+│   │   ├── 📄 AlertEngine.cls                       # Real-time alerting
+│   │   ├── 📄 LiveDashboard.cls                     # Live dashboard framework
+│   │   ├── 📄 MetricsStreamer.cls                   # Metrics streaming
+│   │   ├── 📄 ComplexEventProcessor.cls             # Complex event processing
+│   │   └── 📁 connectors/
+│   │       ├── 📄 KafkaConnector.cls                # Apache Kafka connector
+│   │       ├── 📄 KinesisConnector.cls              # AWS Kinesis connector
+│   │       ├── 📄 EventHubConnector.cls             # Azure Event Hub connector
+│   │       └── 📄 PubSubConnector.cls               # Google Pub/Sub connector
+│   │
+│   ├── 📁 reporting-engine/                         # Advanced reporting engine
+│   │   ├── 📄 README.md                             # Reporting engine guide
+│   │   ├── 📄 ReportBuilder.cls                     # Dynamic report builder
+│   │   ├── 📄 TemplateEngine.cls                    # Report template engine
+│   │   ├── 📄 ScheduledReporting.cls                # Scheduled report generation
+│   │   ├── 📄 InteractiveReports.cls                # Interactive report framework
+│   │   ├── 📄 ReportDistribution.cls                # Report distribution system
+│   │   ├── 📄 ExportManager.cls                     # Multi-format export manager
+│   │   ├── 📁 templates/
+│   │   │   ├── 📄 ExecutiveReport.template           # Executive report template
+│   │   │   ├── 📄 OperationalReport.template         # Operational report template
+│   │   │   ├── 📄 ComplianceReport.template          # Compliance report template
+│   │   │   └── 📄 FinancialReport.template           # Financial report template
+│   │   └── 📁 formatters/
+│   │       ├── 📄 PDFFormatter.cls                  # PDF report formatter
+│   │       ├── 📄 ExcelFormatter.cls                # Excel report formatter
+│   │       ├── 📄 HTMLFormatter.cls                 # HTML report formatter
+│   │       └── 📄 CSVFormatter.cls                  # CSV report formatter
+│   │
+│   ├── 📁 data-visualization/                       # Data visualization framework
+│   │   ├── 📄 README.md                             # Data visualization guide
+│   │   ├── 📄 ChartGenerator.cls                    # Chart generation framework
+│   │   ├── 📄 DashboardBuilder.cls                  # Dashboard building framework
+│   │   ├── 📄 InteractiveVisualization.cls          # Interactive visualization
+│   │   ├── 📄 GeoMapping.cls                        # Geographic mapping
+│   │   ├── 📄 DataStorytellingUtils.cls             # Data storytelling utilities
+│   │   ├── 📁 chart-types/
+│   │   │   ├── 📄 BarChart.cls                      # Bar chart implementation
+│   │   │   ├── 📄 LineChart.cls                     # Line chart implementation
+│   │   │   ├── 📄 PieChart.cls                      # Pie chart implementation
+│   │   │   ├── 📄 ScatterPlot.cls                   # Scatter plot implementation
+│   │   │   ├── 📄 HeatMap.cls                       # Heat map implementation
+│   │   │   └── 📄 TreeMap.cls                       # Tree map implementation
+│   │   └── 📁 integrations/
+│   │       ├── 📄 TableauConnector.cls              # Tableau integration
+│   │       ├── 📄 PowerBIConnector.cls              # Power BI integration
+│   │       ├── 📄 QlikConnector.cls                 # Qlik integration
+│   │       └── 📄 D3Connector.cls                   # D3.js integration
+│   │
+│   └── 📁 data-governance/                          # Data governance framework
+│       ├── 📄 README.md                             # Data governance guide
+│       ├── 📄 DataGovernanceFramework.cls           # Data governance framework
+│       ├── 📄 DataQualityManager.cls                # Data quality management
+│       ├── 📄 DataLineageTracker.cls                # Data lineage tracking
+│       ├── 📄 MetadataManager.cls                   # Metadata management
+│       ├── 📄 DataCatalog.cls                       # Data catalog implementation
+│       ├── 📄 PrivacyManager.cls                    # Data privacy management
+│       ├── 📄 RetentionPolicyManager.cls            # Data retention policy
+│       ├── 📁 policies/
+│       │   ├── 📄 DataClassificationPolicy.cls      # Data classification policy
+│       │   ├── 📄 AccessControlPolicy.cls           # Access control policy
+│       │   ├── 📄 DataRetentionPolicy.cls           # Data retention policy
+│       │   └── 📄 DataSharingPolicy.cls             # Data sharing policy
+│       └── 📁 compliance/
+│           ├── 📄 GDPRCompliance.cls                # GDPR compliance framework
+│           ├── 📄 CCPACompliance.cls                # CCPA compliance framework
+│           ├── 📄 HIPAACompliance.cls               # HIPAA compliance framework
+│           └── 📄 SOXCompliance.cls                 # SOX compliance framework
+```
+
+## 🌐 API Management and Integration Hub
+
+```
+├── 📁 api-management/                               # API management infrastructure
+│   ├── 📁 api-gateway/                              # API gateway implementation
+│   │   ├── 📄 README.md                             # API gateway guide
+│   │   ├── 📄 APIGateway.cls                        # Core API gateway
+│   │   ├── 📄 RequestRouter.cls                     # Request routing logic
+│   │   ├── 📄 LoadBalancer.cls                      # Load balancing
+│   │   ├── 📄 RateLimiter.cls                       # Rate limiting implementation
+│   │   ├── 📄 AuthenticationGateway.cls             # Authentication gateway
+│   │   ├── 📄 AuthorizationGateway.cls              # Authorization gateway
+│   │   ├── 📄 ResponseTransformer.cls               # Response transformation
+│   │   ├── 📄 CacheManager.cls                      # API response caching
+│   │   └── 📁 middleware/
+│   │       ├── 📄 LoggingMiddleware.cls             # Request/response logging
+│   │       ├── 📄 MetricsMiddleware.cls             # API metrics collection
+│   │       ├── 📄 SecurityMiddleware.cls            # Security enforcement
+│   │       └── 📄 ValidationMiddleware.cls          # Request validation
+│   │
+│   ├── 📁 api-versioning/                           # API versioning framework
+│   │   ├── 📄 README.md                             # API versioning guide
+│   │   ├── 📄 VersionManager.cls                    # Version management
+│   │   ├── 📄 BackwardCompatibility.cls             # Backward compatibility
+│   │   ├── 📄 DeprecationManager.cls                # API deprecation management
+│   │   ├── 📄 MigrationAssistant.cls                # Version migration assistant
+│   │   └── 📁 strategies/
+│   │       ├── 📄 URLVersioning.cls                 # URL-based versioning
+│   │       ├── 📄 HeaderVersioning.cls              # Header-based versioning
+│   │       └── 📄 ContentVersioning.cls             # Content negotiation versioning
+│   │
+│   ├── 📁 api-documentation/                        # API documentation framework
+│   │   ├── 📄 README.md                             # API documentation guide
+│   │   ├── 📄 DocumentationGenerator.cls            # Auto documentation generation
+│   │   ├── 📄 OpenAPIGenerator.cls                  # OpenAPI/Swagger generation
+│   │   ├── 📄 PostmanCollectionGenerator.cls        # Postman collection generation
+│   │   ├── 📄 InteractiveDocumentation.cls          # Interactive API docs
+│   │   ├── 📄 CodeSampleGenerator.cls               # Code sample generation
+│   │   └── 📁 templates/
+│   │       ├── 📄 api-reference.template            # API reference template
+│   │       ├── 📄 getting-started.template          # Getting started template
+│   │       ├── 📄 authentication.template           # Authentication guide template
+│   │       └── 📄 error-handling.template           # Error handling template
+│   │
+│   ├── 📁 api-testing/                              # API testing framework
+│   │   ├── 📄 README.md                             # API testing guide
+│   │   ├── 📄 APITestFramework.cls                  # API test framework
+│   │   ├── 📄 ContractTesting.cls                   # API contract testing
+│   │   ├── 📄 PerformanceTesting.cls                # API performance testing
+│   │   ├── 📄 SecurityTesting.cls                   # API security testing
+│   │   ├── 📄 MockServer.cls                        # API mock server
+│   │   ├── 📄 TestDataGenerator.cls                 # API test data generation
+│   │   └── 📁 test-suites/
+│   │       ├── 📄 SmokeTests.cls                    # API smoke tests
+│   │       ├── 📄 RegressionTests.cls               # API regression tests
+│   │       ├── 📄 LoadTests.cls                     # API load tests
+│   │       └── 📄 SecurityTests.cls                 # API security tests
+│   │
+│   └── 📁 api-analytics/                            # API analytics framework
+│       ├── 📄 README.md                             # API analytics guide
+│       ├── 📄 APIAnalytics.cls                      # API analytics engine
+│       ├── 📄 UsageAnalytics.cls                    # API usage analytics
+│       ├── 📄 PerformanceAnalytics.cls              # API performance analytics
+│       ├── 📄 ErrorAnalytics.cls                    # API error analytics
+│       ├── 📄 BusinessMetrics.cls                   # Business impact metrics
+│       ├── 📄 DeveloperMetrics.cls                  # Developer experience metrics
+│       └── 📁 reports/
+│           ├── 📄 UsageReport.cls                   # API usage reports
+│           ├── 📄 PerformanceReport.cls             # Performance reports
+│           ├── 📄 ErrorReport.cls                   # Error analysis reports
+│           └── 📄 BusinessImpactReport.cls          # Business impact reports
+```
+
+## 🔒 Advanced Security Framework
+
+```
+├── 📁 security-framework/                           # Comprehensive security framework
+│   ├── 📁 authentication-authorization/             # Auth framework
+│   │   ├── 📄 README.md                             # Authentication guide
+│   │   ├── 📄 AuthenticationManager.cls             # Authentication management
+│   │   ├── 📄 AuthorizationManager.cls              # Authorization management
+│   │   ├── 📄 OAuth2Implementation.cls              # OAuth 2.0 implementation
+│   │   ├── 📄 JWTManager.cls                        # JWT token management
+│   │   ├── 📄 SAMLProvider.cls                      # SAML authentication
+│   │   ├── 📄 MultiFactorAuthentication.cls         # MFA implementation
+│   │   ├── 📄 SingleSignOn.cls                      # SSO implementation
+│   │   ├── 📄 RoleBasedAccessControl.cls            # RBAC implementation
+│   │   └── 📁 providers/
+│   │       ├── 📄 ActiveDirectoryProvider.cls       # AD authentication
+│   │       ├── 📄 LDAPProvider.cls                  # LDAP authentication
+│   │       ├── 📄 GoogleProvider.cls                # Google OAuth provider
+│   │       └── 📄 MicrosoftProvider.cls             # Microsoft OAuth provider
+│   │
+│   ├── 📁 data-protection/                          # Data protection framework
+│   │   ├── 📄 README.md                             # Data protection guide
+│   │   ├── 📄 EncryptionManager.cls                 # Encryption management
+│   │   ├── 📄 KeyManager.cls                        # Encryption key management
+│   │   ├── 📄 TokenizationService.cls               # Data tokenization
+│   │   ├── 📄 DataMasking.cls                       # Data masking utilities
+│   │   ├── 📄 PIIProtection.cls                     # PII protection framework
+│   │   ├── 📄 DataAnonymization.cls                 # Data anonymization
+│   │   ├── 📄 SecureDataTransfer.cls                # Secure data transfer
+│   │   └── 📁 algorithms/
+│   │       ├── 📄 AESEncryption.cls                 # AES encryption
+│   │       ├── 📄 RSAEncryption.cls                 # RSA encryption
+│   │       ├── 📄 HashingAlgorithms.cls             # Hashing algorithms
+│   │       └── 📄 DigitalSignatures.cls             # Digital signatures
+│   │
+│   ├── 📁 threat-detection/                         # Threat detection framework
+│   │   ├── 📄 README.md                             # Threat detection guide
+│   │   ├── 📄 ThreatDetectionEngine.cls             # Threat detection engine
+│   │   ├── 📄 IntrusionDetection.cls                # Intrusion detection system
+│   │   ├── 📄 AnomalyDetection.cls                  # Anomaly detection
+│   │   ├── 📄 BehaviorAnalysis.cls                  # User behavior analysis
+│   │   ├── 📄 MalwareDetection.cls                  # Malware detection
+│   │   ├── 📄 FraudDetection.cls                    # Fraud detection
+│   │   ├── 📄 ThreatIntelligence.cls                # Threat intelligence
+│   │   └── 📁 analyzers/
+│   │       ├── 📄 NetworkAnalyzer.cls               # Network traffic analyzer
+│   │       ├── 📄 FileAnalyzer.cls                  # File analysis
+│   │       ├── 📄 LogAnalyzer.cls                   # Log analysis
+│   │       └── 📄 APIAnalyzer.# 🚀 Salesforce Apex Showcase - Extended Enterprise Repository Structure
 
 ## 📁 Repository Overview
 
