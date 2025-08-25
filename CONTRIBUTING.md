@@ -1,3 +1,4 @@
+```
 │   │   ├── 📄 .jenkins/
 │   │   │   ├── 📄 Jenkinsfile                       # Jenkins pipeline configuration
 │   │   │   ├── 📄 build.groovy                      # Build automation scripts
