@@ -402,7 +402,7 @@
 │   │       ├── 📄 FileAnalyzer.cls                  # File analysis
 │   │       ├── 📄 LogAnalyzer.cls                   # Log analysis
 │   │       └── 📄 APIAnalyzer.# 🚀 Salesforce Apex Showcase - Extended Enterprise Repository Structure
-
+```
 ## 📁 Repository Overview
 
 ```
